@@ -1,4 +1,4 @@
-# HamCyclePi
+# HamCyclePy
 This is a college work for Project and Analysis of Algorithms.
 
 Este código visa resolver o problema NP-Completo do Ciclo Hamiltoniano em um grafo não orientado.
