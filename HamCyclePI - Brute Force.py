@@ -1,4 +1,4 @@
-import itertools
+﻿import itertools
 
 # grafo de 8 vertices abaixo. Imagem disponivel em: encurtador.com.br/diFIN
 # Possui um ciclo hamiltoniano [0-1-2-3-4-5-6-7-0]
