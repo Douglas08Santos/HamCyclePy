@@ -36,26 +36,22 @@ algoritmo seria excluir essa "falha" e fazer com que considere as duas como igua
 
 Geradas todas as combinações, o algoritmo então passa a iterar sobre cada uma delas tentando encontrar um ciclo possível na ordem da
 combinação da vez. Ele assume o primeiro elemento como o início do ciclo e parte do segundo. Então ele verifica se o vertice atual
-(no caso o 1) possui uma aresta com o anterior (que no caso o 0).
+(no caso o 1) possui uma aresta com o anterior (que no caso é o 0).
 
 Caso constate que há uma aresta entre eles, então ele passa para o próximo elemento (vertice 2) e repete o processo.
 
-Um Ciclo hamiltoniano é detectado ao se chegar ao fim da combinação, e por consequência, ter adicionado todos os vértices anteriores ao
+Um Ciclo hamiltoniano é detectado ao se chegar ao fim da combinação e, por consequência, ter adicionado todos os vértices anteriores ao
 último. Para isso verifica-se constantemente se a quantidade de vértices no caminho feito é igual ao número total de vértices do grafo.
 
 Acontecendo esta stiuação, o grafo é tido como um Ciclo Hamiltoniano, porém o algoritmo apenas armazena esta combinação e continua para
 as próximas, caso haja alguma.
 
-Novamente, é desnecessário tal esforço, pois um ciclo encontrado é suficiente para afimar nossa pergunta se ele é ou não hamiltoniano.
-Porém, como a ideia do trabalho é fazer um código de força bruta e o menos eficiente possível, para que seja melhorado no decorrer do 
-curso, isso é ignorado.
+Novamente, é desnecessário tal esforço, pois um ciclo encontrado é suficiente para afimar como verdadeira anossa pergunta se ele é ou não hamiltoniano. Porém, como a ideia do trabalho é fazer um código de força bruta e o menos eficiente possível, para que seja melhorado no decorrer do curso, isso é ignorado.
 
-Ao chegar ao fim de todas as combinações geradas, caso tenha encontrado algum Ciclo hamiltoniano, ele é mostrado. 
+Ao chegar ao fim de todas as combinações geradas, caso tenha encontrado algum Ciclo hamiltoniano, ele é mostrado.
+
 Vale ressaltar que, como já foi dito anteriormente, ele não diferencia combinações iguais na ordem invertida, portanto, caso haja alguma
-que seja um ciclo hamiltoniano, haverão também a quantidade de vértices do grafo em ciclos válidos. Por questão de obviedade é mostrada
+que seja um ciclo hamiltoniano, haverá também a quantidade de vértices do grafo em ciclos válidos. Por questão de obviedade é mostrada
 apenas a primeira, começando no ponto 0, devido a aplicação real do algoritmo.
 
-Também vale ressaltar que por questões de visualização, ao detectar um ciclo hamiltoniano, o algoritmo insere novamente o primeiro vértice
-apenas para facilitar a leitura.
-
-A aplicação real em que o algoritmo foi implementado é a seguinte:
+Também vale ressaltar que por questões de visualização, ao detectar um ciclo hamiltoniano, o algoritmo insere novamente o primeiro vértice apenas para facilitar a leitura.
