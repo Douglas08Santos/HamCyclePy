@@ -2,7 +2,7 @@
 This is a college work for Project and Analysis of Algorithms.
 
 Este código visa resolver o problema NP-Completo do Ciclo Hamiltoniano em um grafo não orientado.
-Como foi feito para uma disciplina, Projeto e Análise de Algoritmos, por questão de didática a forma como foi implementado é a menos,
+Como foi feito para uma disciplina, Projeto e Análise de Algoritmos, por questão de didática a forma como foi implementado é a,
 ou uma das, menos eficiente possível. 
 
 Basicamente, é inserido um grafo vértice por vértice, informando para cada um deles as arestas que o ligam a outro.
