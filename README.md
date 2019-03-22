@@ -26,13 +26,11 @@ Como o proprio programa explica, deve-se informar os vértices ligados todos de 
 Pela definição de Ciclo Hamiltoniano, para que um grafo seja considerado Hamiltoniano e que tenha um ciclo hamiltoniano deve ser possível
 percorrer todos os seus vértices e retornar ao ponto inicial sem passar duas vezes pelo mesmo vértice.
 
-Para isso, após receber todas as informações do grafo, o algoritmo então gera uma lista contendo todas as combinações possíveis, sem 
-repetir dentro de cada combinação para obedecer a regra de não visitar duas vezes o mesmo vértice, cada combinação sendo outra lista.
-Portanto é gerada uma lista de listas.
+Tendo isso em vista, após receber todas as informações do grafo, o algoritmo então gera uma lista contendo todas as combinações possíveis, sem repetir dentro de cada combinação para obedecer a regra de não visitar duas vezes o mesmo vértice, cada combinação sendo outra lista. Portanto é gerada uma lista de listas.
 
-[0-1-2-3-4-5] e [3-4-5-0-1-2] seriam exemplos de duas combinações feitas no grafo acima.
+[0-1-2-3-4] e [3-4-0-1-2] seriam exemplos de duas combinações feitas no grafo acima.
 
-Importante ressaltar que o código não diferencia [0-1-2-3-4-5] de [5-4-3-2-1-0], sendo que são a mesma coisa do ponto de vista do grafo,
+Importante ressaltar que o código não diferencia [0-1-2-3-4] de [4-3-2-1-0], sendo que são a mesma coisa do ponto de vista do grafo,
 pois por ser, em teoria, um ciclo, qualquer ponto que se inicie nele retornará para o mesmo lugar. Uma possível, e futura, melhoria do
 algoritmo seria excluir essa "falha" e fazer com que considere as duas como iguais.
 
