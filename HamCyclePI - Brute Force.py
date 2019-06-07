@@ -1,8 +1,54 @@
 ﻿import itertools
 
+def inseregrafo():
+    # Recebendo o grafo que representa os pontos de entregas do caminhao
+    print("Informe a quantidade de pontos de entrega (vértices): ")
+    vert = (int(input()))
+    print(vert)
+    # começando a perguntar as arestas dos vertices
+    print("Certo. Diga agora as vias (arestas) de cada ponto de entrega (vertices) ")
+    # variavel para guardar as ligações
+    vertices = []
+    lista_adjacencias = []
+    for i in range(vert):
+        ''' esta lista contem os vertices, apenas para
+            podermos utilizar a função zip mais a frente'''
+        vertices.append(i)
+        print(i)
+        if(i == 0):
+            print("As vias que saem da distribuidora (separados por espaço):")
+        else:
+            print("As vias que existem no ponto " + str((i)) + "(separados por espaço):")
+        vias = input().split(" ")
+        for s in range(len(vias)):
+            vias[s] = int(vias[s])
+        arestas = []
+        for x in range(vert):
+            arestas.append(0)
+            
+        # neste for preparamos a lista que contem as informações
+        # se há ligação entre os vertices ou nao
+        # de forma x : [1,0,...,n] significa que o vertice x
+        # tem ligação com 1 e com 2 não e assim por diante
+        for j in vias:
+            arestas[j] = 1
+        print("arestas: " + str(arestas))
+        lista_adjacencias.append(arestas)
+    grafo = dict(zip(vertices, lista_adjacencias))
+
+    print("O grafo digitado possui as seguintes listas de adjacencias: ")
+    for v in range(vert):
+        print(str(v) + ":[", end='')
+        for l in range(vert):
+            print(str(grafo[v][l]) + str(", "), end='')
+        print("]")
+    
+    return grafo
+
+# grafo coletado e organizado
 # grafo de 8 vertices abaixo. Imagem disponivel em: encurtador.com.br/diFIN
 # Possui um ciclo hamiltoniano [0-1-2-3-4-5-6-7-0]
-'''
+'''"""
           (0)-----------(1)
            | `.       ,´ |  
            |  (7)---(6)  |
@@ -10,8 +56,8 @@
            |  (4)---(5)  |
            | ,´       `. |
           (3)-----------(2)
-
-grafo = {0:[0, 1, 0, 1, 1, 0, 0, 0],
+'''
+grafo1 = {0:[0, 1, 0, 1, 1, 0, 0, 0],
          1:[1, 0, 1, 0, 0, 1, 0, 0],  
          2:[0, 1, 0, 1, 0, 0, 1, 0],
          3:[1, 0, 1, 0, 0, 0, 0, 1],  
@@ -19,7 +65,7 @@ grafo = {0:[0, 1, 0, 1, 1, 0, 0, 0],
          5:[0, 1, 0, 0, 1, 0, 1, 0],
          6:[0, 0, 1, 0, 0, 1, 0, 1],
          7:[0, 0, 0, 1, 1, 0, 1, 0]} 
-
+'''
 # grafo de 5 vertices desenhado abaixo. Possui um ciclo hamiltoniano [0-1-2-3-4-0]
 
             (0)--(1)--(2)
@@ -27,57 +73,16 @@ grafo = {0:[0, 1, 0, 1, 1, 0, 0, 0],
              |  /   \  | 
              | /     \ |
             (4)-------(3)
+'''
 
-
-grafo = {0:[0, 1, 0, 0, 1],
+grafo2 = {0:[0, 1, 0, 0, 1],
          1:[1, 0, 1, 1, 1],  
          2:[0, 1, 0, 1, 0],
          3:[0, 1, 1, 0, 1],  
-         4:[1, 1, 0, 1, 0] } '''
+         4:[1, 1, 0, 1, 0] } 
 
-# Recebendo o grafo que representa os pontos de entregas do caminhao
-print("Informe a quantidade de pontos de entrega (vértices): ")
-vert = (int(input()))
-print(vert)
-# começando a perguntar as arestas dos vertices
-print("Certo. Diga agora as vias (arestas) de cada ponto de entrega (vertices) ")
-# variavel para guardar as ligações
-vertices = []
-lista_adjacencias = []
-for i in range(vert):
-    ''' esta lista contem os vertices, apenas para
-        podermos utilizar a função zip mais a frente'''
-    vertices.append(i)
-    print(i)
-    if(i == 0):
-        print("As vias que saem da distribuidora (separados por espaço):")
-    else:
-        print("As vias que existem no ponto " + str((i)) + "(separados por espaço):")
-    vias = input().split(" ")
-    for s in range(len(vias)):
-        vias[s] = int(vias[s])
-    arestas = []
-    for x in range(vert):
-        arestas.append(0)
-        
-    # neste for preparamos a lista que contem as informações
-    # se há ligação entre os vertices ou nao
-    # de forma x : [1,0,...,n] significa que o vertice x
-    # tem ligação com 1 e com 2 não e assim por diante
-    for j in vias:
-        arestas[j] = 1
-    print("arestas: " + str(arestas))
-    lista_adjacencias.append(arestas)
-grafo = dict(zip(vertices, lista_adjacencias))
-
-print("O grafo digitado possui as seguintes listas de adjacencias: ")
-for v in range(vert):
-    print(str(v) + ":[", end='')
-    for l in range(vert):
-        print(str(grafo[v][l]) + str(", "), end='')
-    print("]")
-
-# grafo coletado e organizado
+# definindo o grafo a ser usado
+grafo = grafo1
 
 # variavel para guardar a quantidade de vertices
 vert = grafo.__len__()
@@ -124,6 +129,7 @@ for i in rotas:
                 last = j
                 # adiciona-se o vertice ao caminho da rota
                 path.append(j)
+                # e interrompe-se o loop pois um vertice ja foi escolhido
                 break
             
         # caso todos os vertices tenham sido inseridos
@@ -137,16 +143,20 @@ for i in rotas:
                 # que pode começar de qualquer ponto
                 hamRotes.append(path)
 
-print("Existe uma rota que forma um ciclo hamiltoniano. A rota é: ")
-for i in hamRotes:
-    # imprimindo apenas a versão que começa do ZERO
-    # apenas por definição própria
-    # pois na aplicação real, seria considerado o centro de distribuição
-    if(i[0] == 0):
+if(len(hamRotes) > 0):
+    print("Existe uma rota que forma um ciclo hamiltoniano. A rota é: ")
+
+    for i in hamRotes:
         print(i)
-        break
-print("\nCombinações possiveis: " + str(rotes))
-print("Com " + str(itj) + " iterações de comparação de viabilidade do proximo ponto(j) e " + str(itk) + " de verificação de adjacência(k).")
+        
+        # imprimindo apenas a versão que começa do ZERO
+        # apenas por definição própria
+        # pois na aplicação real, seria considerado o centro de distribuição
+        #if(i[0] == 0):
+        #    print(i)
+        #    break
+    print("\nCombinações possiveis: " + str(rotes))
+    print("Com " + str(itj) + " iterações de comparação de viabilidade do proximo ponto(j) e " + str(itk) + " de verificação de adjacência(k).")
 
 # This code was developed by Isaias Oliveira
 # Esse código foi desenvolvido por Isaias Oliveira
