@@ -55,3 +55,15 @@ que seja um ciclo hamiltoniano, haverá também a quantidade de vértices do gra
 apenas a primeira, começando no ponto 0, devido a aplicação real do algoritmo.
 
 Também vale ressaltar que por questões de visualização, ao detectar um ciclo hamiltoniano, o algoritmo insere novamente o primeiro vértice apenas para facilitar a leitura.
+
+BACKTRACKING
+
+Adicionado uma melhoria do algoritmo, trabalhando com backtracking.
+
+Backtracking, basicamente encontra apenas soluções viáveis, pois durante a contrução incremental de uma solução, ao adicionar um novo elemento e este invia-
+bilize a mes,a é automaticamente descartado e o algoritmo tenta encontrar um outro elemento que melhore a solução.
+
+Outra adição, para ressaltar a eficiência, é que ao encontrar uma solução viável que satisfaça o problema, o algoritmo para, pois isto é suficiente como res-
+posta.
+
+Novamente, é um projeto de disciplina, e a versão de força bruta é muito ineficiente e ingênua.
