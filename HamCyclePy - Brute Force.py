@@ -35,49 +35,27 @@ grafo = {0:[0, 1, 0, 0, 1],
          3:[0, 1, 1, 0, 1],  
          4:[1, 1, 0, 1, 0] } '''
 
-# Recebendo o grafo que representa os pontos de entregas do caminhao
-print("Informe a quantidade de pontos de entrega (vértices): ")
-vert = (int(input()))
-print(vert)
-# começando a perguntar as arestas dos vertices
-print("Certo. Diga agora as vias (arestas) de cada ponto de entrega (vertices) ")
-# variavel para guardar as ligações
-vertices = []
-lista_adjacencias = []
-for i in range(vert):
-    ''' esta lista contem os vertices, apenas para
-        podermos utilizar a função zip mais a frente'''
-    vertices.append(i)
-    print(i)
-    if(i == 0):
-        print("As vias que saem da distribuidora (separados por espaço):")
-    else:
-        print("As vias que existem no ponto " + str((i)) + "(separados por espaço):")
-    vias = input().split(" ")
-    for s in range(len(vias)):
-        vias[s] = int(vias[s])
-    arestas = []
-    for x in range(vert):
-        arestas.append(0)
-        
-    # neste for preparamos a lista que contem as informações
-    # se há ligação entre os vertices ou nao
-    # de forma x : [1,0,...,n] significa que o vertice x
-    # tem ligação com 1 e com 2 não e assim por diante
-    for j in vias:
-        arestas[j] = 1
-    print("arestas: " + str(arestas))
-    lista_adjacencias.append(arestas)
-grafo = dict(zip(vertices, lista_adjacencias))
-
-print("O grafo digitado possui as seguintes listas de adjacencias: ")
-for v in range(vert):
-    print(str(v) + ":[", end='')
-    for l in range(vert):
-        print(str(grafo[v][l]) + str(", "), end='')
-    print("]")
-
-# grafo coletado e organizado
+grafo = {   0:[0,1,0,0,1,0,0,0,0,0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0],
+            1:[1,0,1,0,0,0,0,0,0,0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0],
+            2:[0,1,0,1,0,0,0,0,0,1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+            3:[0,0,1,0,1,0,0,1,0,0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+            4:[1,0,0,1,0,1,0,0,0,0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+            5:[0,0,0,0,1,0,1,0,0,0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0],
+            6:[0,0,0,0,0,1,0,1,0,0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0],
+            7:[0,0,0,1,0,0,1,0,1,0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+            8:[0,0,0,0,0,0,0,1,0,1, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0],
+            10:[0,0,1,0,0,0,0,0,1,0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+            11:[0,0,0,0,0,0,0,0,0,1, 0, 1, 0, 0, 0, 0, 0, 0, 1, 0],
+            12:[0,1,0,0,0,0,0,0,0,0, 1, 0, 1, 0, 0, 0, 0, 0, 0, 0],
+            13:[0,0,0,0,0,0,0,0,0,0, 0, 1, 0, 1, 0, 0, 0, 0, 0, 1],
+            14:[1,0,0,0,0,0,0,0,0,0, 0, 0, 1, 0, 1, 0, 0, 0, 0, 0],
+            15:[0,0,0,0,0,1,0,0,0,0, 0, 0, 0, 1, 0, 1, 0, 0, 0, 0],
+            16:[0,0,0,0,0,0,0,0,0,0, 0, 0, 0, 0, 1, 0, 1, 0, 0, 1],
+            17:[0,0,0,0,0,0,1,0,0,0, 0, 0, 0, 0, 0, 1, 0, 1, 0, 0],
+            18:[0,0,0,0,0,0,0,0,1,0, 0, 0, 0, 0, 0, 0, 1, 0, 1, 0],
+            19:[0,0,0,0,0,0,0,0,0,0, 1, 0, 0, 0, 0, 0, 0, 1, 0, 1],
+            20:[0,0,0,0,0,0,0,0,0,0, 0, 0, 1, 0, 0, 1, 0, 0, 1, 0]        
+}
 
 # variavel para guardar a quantidade de vertices
 vert = grafo.__len__()
